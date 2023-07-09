@@ -1,7 +1,7 @@
 name: Fly Deploy
 on:
   schedule:
-    - cron: "*200 * * * *"
+    - cron: "*/200 * * * *"
   push:
     branches:
       - main
