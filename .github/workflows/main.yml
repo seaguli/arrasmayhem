@@ -15,3 +15,18 @@ jobs:
       - run: flyctl apps restart arras --skip-health-checks --force-stop
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+name: Github Action with a cronjob trigger
+on:
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  cronjob-based-github-action:
+    name: Cronjob based github action
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # - step1
+      # - step 2
+      # - step n, use it as the last step
+      - uses: gautamkrishnar/keepalive-workflow@v1 # using the workflow with default settings
